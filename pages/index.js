@@ -5,6 +5,7 @@ export default function Home() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [query, setQuery] = useState('');
+  const [initialSearch, setInitialSearch] = useState(false);
 
   const onFormSubmit = async e => {
     e.preventDefault();
@@ -13,8 +14,9 @@ export default function Home() {
       `https://kodepos.vercel.app/search?q=${query}`
     );
     const json = await response.json();
-    setData(json.data);
+    json.data ? setData(json.data) : setData([]);
     setLoading(false);
+    setInitialSearch(true);
   };
 
   return (
@@ -57,6 +59,11 @@ export default function Home() {
           </form>
         </div>
         {data?.length > 0 && <Cards results={data} />}
+        {data?.length === 0 && initialSearch && (
+          <div className="text-center text-secondary mt-8">
+            <p>Tidak ditemukan kode pos dengan kata kunci tersebut</p>
+          </div>
+        )}
       </div>
     </div>
   );
