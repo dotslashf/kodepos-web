@@ -13,7 +13,6 @@ export default function Home() {
       `https://kodepos.vercel.app/search?q=${query}`
     );
     const json = await response.json();
-    console.log(json);
     setData(json.data);
     setLoading(false);
   };
@@ -21,16 +20,14 @@ export default function Home() {
   return (
     <div className="flex justify-center items-center w-full h-full bg-base-100">
       <div className="flex flex-col w-screen items-center px-4 md:px-48 py-32">
-        <h1 className="text-4xl text-primary font-bold tracking-wider">
-          kodepos
-        </h1>
+        <h1 className="text-4xl text-primary font-bold">kodepos-web</h1>
         <div className="w-full form-control mt-8">
           <form onSubmit={onFormSubmit}>
             <div className="input-group">
               <input
                 type="text"
                 placeholder="Masukkan nama kota, kabupaten, kecamatan, atau desa"
-                className="w-full input input-primary focus:outline-none"
+                className="w-full input input-primary focus:outline-none bg-white"
                 onChange={e => setQuery(e.target.value)}
               />
               <button
