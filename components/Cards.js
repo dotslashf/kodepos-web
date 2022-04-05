@@ -1,4 +1,4 @@
-export default function Cards() {
+export default function Cards({ results }) {
   return (
     <div className="w-full mt-4 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
       {[...Array(8).keys()].map(i => {
