@@ -1,12 +1,12 @@
+import toast from 'react-simple-toasts';
+
 export default function Card({ data }) {
   return (
     <div
       className="card card-compact card-bordered border-primary bg-white rounded-md shadow-md hover:-translate-y-1 translate-x-0 transition cursor-pointer"
       onClick={() => {
-        window.open(
-          `https://www.google.com/search?q=kode+pos+${data.subdistrict}+${data.city}`,
-          '_blank'
-        );
+        navigator.clipboard.writeText(data.postalcode);
+        toast(`Kode pos ${data.urban.toLowerCase()} berhasil disalin`);
       }}
     >
       <div className="card-body text-secondary">

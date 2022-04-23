@@ -12,7 +12,8 @@
     "daisyui": "^2.13.6",
     "next": "12.1.4",
     "react": "17.0.0",
-    "react-dom": "17.0.0"
+    "react-dom": "17.0.0",
+    "react-simple-toasts": "^2.2.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.4",
